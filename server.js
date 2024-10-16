@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
+const courseRoutes = require('./routes/course')
 
 const app = express();
 //middleware
@@ -40,6 +41,7 @@ app.get('/', (req, res) => {
 
 app.use('/api', authRoutes);
 app.use('/api', userRoutes);
+app.use('/api', courseRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

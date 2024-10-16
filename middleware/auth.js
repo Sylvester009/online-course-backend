@@ -14,7 +14,7 @@ exports.isAuthenticated = async (req, res, next) => {
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        console.log("Decoded token:", decoded);
+        //console.log("Decoded token:", decoded);
         req.user = await User.findById(decoded.id);
         if (!req.user){
             res.status(404).json({
@@ -69,7 +69,7 @@ exports.canUpdate = async (req, res, next) => {
   
       // Find the course by its ID
       const course = await Course.findById(courseId);
-      console.log(course)
+      //console.log(course)
   
       if (!course) {
         return res.status(404).json({ message: 'Course not found' });
